@@ -1,6 +1,10 @@
 //Aqui "cep" se torna uma referencia do elemento <input> que possui o id=cep
 const cep = document.getElementById("cep");
 const rua = document.getElementById("rua");
+const bairro = document.getElementById("bairro");
+const cidade = document.getElementById("cidade");
+const estado = document.getElementById("estado");
+const ibge = document.getElementById("ibge");
 
 //Aqui adicionamos um evento ao elemento cep e quando este evento acontecer uma função sera executada
 cep.addEventListener("blur", function(){
@@ -20,6 +24,10 @@ cep.addEventListener("blur", function(){
     }).then(function(dados){
         console.log(dados.logradouro);
         rua.value = dados.logradouro;
+        bairro.value = dados.bairro;
+        cidade.value = dados.localidade;
+        estado.value = dados.uf;
+        ibge.value = dados.ibge;
     });
 }
 );
